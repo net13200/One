@@ -1,4 +1,4 @@
-/* Audio for One.
+/* Audio for אחת שתיים שלוש.
  *
  * Speech uses the device's own voices (Web Speech API): a Hebrew voice for
  * everything Hebrew and an English voice for English numbers. Each segment is

@@ -1,4 +1,4 @@
-/* One — screens, the three exercises and the parent area. */
+/* אחת שתיים שלוש — screens, the three exercises and the parent area. */
 (() => {
   "use strict";
 
@@ -146,8 +146,8 @@
     show(
       `<div class="parent-page welcome">
         <div class="hero">${GUIDE}</div>
-        <h1>ברוכים הבאים ל<span class="brand">One</span></h1>
-        <p>משחק ספירה רגוע לגיל הגן: נוגעים בכל דבר וסופרים בקול — בעברית, באנגלית או בשתיהן.</p>
+        <h1 class="brand">אחת שתיים שלוש</h1>
+        <p>ברוכים הבאים! משחק ספירה רגוע לגיל הגן: נוגעים בכל דבר וסופרים בקול — בעברית, באנגלית או בשתיהן.</p>
         <p class="muted">כל המידע נשמר על המכשיר הזה בלבד. אין חשבון, אין שרת, אין פרסומות.</p>
         <button class="btn primary" id="go">הגדרות ראשונות</button>
       </div>`,

@@ -1,4 +1,4 @@
-/* One — every word the game speaks lives in this file.
+/* אחת שתיים שלוש — every word the game speaks lives in this file.
  *
  * Each spoken segment is { key, text, lang }. The key is stable
  * (num.he.5, p.countAgain.m, total.he.apple.5 …) so checked recordings
