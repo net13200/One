@@ -124,6 +124,8 @@ function check(cond, msg) {
         check(s.includes(data.NUM_HE[n]) && s.includes(data.NUM_EN[n]), `tap: said ${n} in Hebrew and English`);
         check(s.some((t) => t.startsWith("יֵשׁ ")), "tap: said the total with the noun");
         check(s.some((t) => t.startsWith("כְּבָר סָפַרְנוּ")) || n === 1, "tap: re-tap says 'already counted'");
+        check((await page.$$(".item.counted")).length === n, "tap: every item marked counted");
+        check(!(await page.$(".badge")), "tap: no number badges on the items");
         if (r === 0) await shot("05-tap-done");
       } else {
         await page.waitForSelector(".num-card");
@@ -173,7 +175,8 @@ function check(cond, msg) {
     const n = await target();
     await clearSaid();
     if (k === "tap") {
-      for (const it of await page.$$(".item")) {
+      // Any order works: tap from the last item to the first.
+      for (const it of (await page.$$(".item")).reverse()) {
         await it.click();
         await sleep(30); // fast taps: numbers cut each other off, no backlog
       }

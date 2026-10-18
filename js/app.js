@@ -302,7 +302,7 @@
       b.className = "item";
       b.dataset.i = i;
       b.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;font-size:${size * 0.62}px`;
-      b.innerHTML = `<span class="emo">${it.emoji}</span><span class="badge"></span>`;
+      b.innerHTML = `<span class="emo">${it.emoji}</span>`;
       field.appendChild(b);
       return b;
     });
@@ -314,22 +314,18 @@
     el.classList.add("bounce");
   }
 
-  function mark(el, n) {
+  function mark(el) {
     el.classList.add("counted");
-    el.querySelector(".badge").textContent = n;
     bounce(el);
   }
 
   // The voice counts these elements one by one, lighting each up.
   async function countTogether(v, els) {
-    els.forEach((el) => {
-      el.classList.remove("counted", "lit");
-      el.querySelector(".badge").textContent = "";
-    });
+    els.forEach((el) => el.classList.remove("counted", "lit"));
     for (let i = 0; i < els.length; i++) {
       if (v.dead) return;
       els[i].classList.add("lit");
-      mark(els[i], i + 1);
+      mark(els[i]);
       A.sfx.pop();
       await talk(seg.num(i + 1));
       await wait(150);
@@ -352,7 +348,7 @@
           return;
         }
         count++;
-        mark(b, count);
+        mark(b);
         A.sfx.pop();
         if (count < n) talk(seg.num(count));
         else {
@@ -468,7 +464,7 @@
 
     function renderChips() {
       $("#chips").innerHTML = inBasket
-        .map((i) => `<button class="chip" data-i="${i}"><span class="emo">${it.emoji}</span><span class="badge"></span></button>`)
+        .map((i) => `<button class="chip" data-i="${i}"><span class="emo">${it.emoji}</span></button>`)
         .join("");
       $("#chips").classList.toggle("many", inBasket.length > 6);
       $$(".chip").forEach((c) =>

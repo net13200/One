@@ -1,6 +1,6 @@
 /* Offline support: everything the app needs is cached on install.
  * Bump CACHE on every release, or installed phones keep the old version. */
-const CACHE = "one-v1";
+const CACHE = "one-v2";
 const SHELL = [
   "./",
   "index.html",
